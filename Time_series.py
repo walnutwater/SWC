@@ -1,4 +1,4 @@
-class TimeSeries(object):
+	class TimeSeries(object):
 
     
     Takes a par'''
@@ -7,9 +7,9 @@ class TimeSeries(object):
     
     def get(self, x):
         '''Find the corresponding y-value when given an x-value'''
-        for (xi,yi) in self.data:
-            if xi == x:
-                return yi
+        for {x1:y1} in self.data:
+            if x1 == x:
+                return y1
         
         raise Exception("Didn't find the value")
     
@@ -25,14 +25,14 @@ class StepFunctionTimeSeries(TimeSeries):
         Uses step interpolation (gets the Y value of the nearest X point)'''
         '''note that this loop does not cover edge cases when points which are out of range of the data'''
         closest_point = None
-        for (xi, yi) in self.data:
+        for (x1:y1) in self.data:
             if closest_point is None:
-                closest_point = (xi, yi)
+                closest_point = (x1:y1)
             else:
                 cx, cy = closest_point
                 '''Compares for nearest point'''
-                if abs(xi-x) < abs(cx-x):
-                    closest_point = (xi, yi)
+                if abs(x1-x) < abs(cx-x):
+                    closest_point = (x1, y1)
         return closest_point[1]
         
 
@@ -57,7 +57,7 @@ interpolate between them to estimate the y-value'''
             # [-1] means return last value 
             return self.data[-1][1]
         # otherwise, it's within the range
-        for (n, (xi, yi)) in enumerate(self.data):
+        for (n, (x1: yi)) in enumerate(self.data):
             if xi == x:
                 return yi
             elif xi > x:
