@@ -20,7 +20,7 @@ class TimeSeries(object):
 
 class StepFunctionTimeSeries(TimeSeries):
     def get(self, x):
-        '''Given an X value, get the corresponding Y value.
+        '''Given an X value, get the corresponding Y value. Test
         
         Uses step interpolation (gets the Y value of the nearest X point)'''
         '''note that this loop does not cover edge cases when points which are out of range of the data'''
